@@ -1,0 +1,6 @@
+
+UXCTL - CLI Utility for unit management
+
+  --help -h   | CheatSheet to flags
+  --unit -u   | Generate new unit
+  --status -s | Open status dashboard
