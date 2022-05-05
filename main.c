@@ -1,7 +1,5 @@
-#include <stdio.h>
-#include "lib/dxtlib.c"
+#include "define.h"
 #include "flags.c"
-#include "define.c"
 
 int main(int argc, char * argv[]) {
 
