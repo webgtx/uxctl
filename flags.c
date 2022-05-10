@@ -16,7 +16,7 @@ int is_flag_valid(const char *val, const char *key, const char *key_short) {
 
 void help() {
   char str_dat[ASIZE];
-  rd_file(str_dat, "assets/help.dat");
+  rd_file(str_dat, "/usr/local/etc/uxctl/assets/help.dat");
   printf("%s\n", str_dat);
 }
 
