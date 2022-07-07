@@ -1,7 +1,6 @@
 #include "define.h"
 #include "lib/dxtlib.c"
 
-
 struct unit {
   char description[ASIZE];
   char type[50];
@@ -14,9 +13,9 @@ int is_flag_valid(const char *val, const char *key, const char *key_short) {
   return !strcmp(key, val) || !strcmp(key_short, val) ? 1 : 0;
 }
 
-void help() {
+void help(char *pwd) {
   char str_dat[ASIZE];
-  rd_file(str_dat, "/usr/local/etc/uxctl/assets/help.dat");
+  rd_file(str_dat, pwd);
   printf("%s\n", str_dat);
 }
 
