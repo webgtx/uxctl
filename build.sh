@@ -11,7 +11,8 @@ case $1 in
       echo "You are not root, trying run commands with sudo..."
       break
     fi
-    mkdir /usr/local/etc/uxctl
+    mkdir /usr/local/etc/uxctl & 
+    cp ./bin/uxctl /usr/bin
     cp -r assets/ /usr/local/etc/uxctl
   ;;
   "-h" | "--help")
