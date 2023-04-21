@@ -3,3 +3,4 @@ bin
 *.service
 *.target
 *.mount
+*.swp

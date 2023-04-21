@@ -1,5 +1,5 @@
-#include "define.h"
-#include "lib/dxtlib.c"
+#include "lib/plainfs.h"
+#define ASIZE 200 
 
 struct unit {
   char description[ASIZE];
@@ -38,7 +38,7 @@ int unit(char *title) {
   puts("Unit was created !");
   sprintf(
       unit_data,
-      "[ Unit ]\nDescription=%s\n[Service]\nType=%s\nExecStart=%s\nWorkingDirectory=%s\n%s[Install]\nWantedBy=default.target\n",
+      "[ Unit ]\nDescription=%s\n[ Service ]\nType=%s\nExecStart=%s\nWorkingDirectory=%s\n%s[ Install ]\nWantedBy=default.target\n",
       new_unit.description, new_unit.type, new_unit.exec_start, new_unit.work_dir, strcmp(new_unit.restart, "y") ? "" : "Restart=always\n");
   wrt_file(unit_data, title);
   return 0;

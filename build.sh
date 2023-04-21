@@ -9,7 +9,6 @@ case $1 in
     echo "prod build strated..."
     if [[ $(whoami) != "root" ]]; then
       echo "You are not root, trying run commands with sudo..."
-      break
     fi
     mkdir /usr/local/etc/uxctl & 
     cp ./bin/uxctl /usr/bin

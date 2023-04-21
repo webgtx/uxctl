@@ -1,5 +1,5 @@
-#include "define.h"
 #include "flags.c"
+#define SLINE(title) printf("\n---[ %s ]---\n", title)
 
 int main(int argc, char * argv[]) {
 
@@ -10,7 +10,7 @@ int main(int argc, char * argv[]) {
       if (argv[2]) 
         unit(argv[2]);
       else
-        puts("You must write title for file");
+        puts("Please type filename");
     if (is_flag_valid(value, "--status", "-s"))
       status(argv[2]);
   }
