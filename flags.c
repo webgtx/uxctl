@@ -38,7 +38,7 @@ int unit(char *title) {
   puts("Unit was created !");
   sprintf(
       unit_data,
-      "[ Unit ]\nDescription=%s\n[ Service ]\nType=%s\nExecStart=%s\nWorkingDirectory=%s\n%s[ Install ]\nWantedBy=default.target\n",
+      "[Unit]\nDescription=%s\n[Service]\nType=%s\nExecStart=%s\nWorkingDirectory=%s\n%s[Install]\nWantedBy=default.target\n",
       new_unit.description, new_unit.type, new_unit.exec_start, new_unit.work_dir, strcmp(new_unit.restart, "y") ? "" : "Restart=always\n");
   wrt_file(unit_data, title);
   return 0;
@@ -47,5 +47,22 @@ int unit(char *title) {
 int status(const char *service) {
   if (!service) return 1;
   puts(service);
+  return 0;
+}
+
+int install(const char *filename, const char *path) {
+  if (!path || !filename) return 1;
+  char payload[ASIZE];
+  char checkbox = 'y';
+  printf("We are going to install service with name %s into the %s\n", filename, path);
+  printf("Are you agree with this? (Y\\n): ");
+  checkbox = getchar();
+  if (checkbox == 'y') {
+    sprintf(payload, "cp %s %s", filename, path);
+    system(payload);
+    printf("A service was installed here\n%s/%s", path, filename);
+  } else {
+    puts("Operation has been cancelled");
+  }
   return 0;
 }

@@ -4,7 +4,7 @@
 int main(int argc, char * argv[]) {
 
   void exec_flag(const char *value) { 
-    if (is_flag_valid(value, "--help", "-h") || argc <= 3) 
+    if (is_flag_valid(value, "--help", "-h")) 
       help(argv[2] == "--local" ? "./assets/help.dat" : "/usr/local/etc/uxctl/assets/help.dat");
     if (is_flag_valid(value, "--unit", "-u"))
       if (argv[2]) 
@@ -13,6 +13,12 @@ int main(int argc, char * argv[]) {
         puts("Please type filename");
     if (is_flag_valid(value, "--status", "-s"))
       status(argv[2]);
+    if (is_flag_valid(value, "--install", "-i")) {
+      if (argc == 3) 
+        install(argv[2], "/etc/systemd/system");
+      else
+        install(argv[2], argv[3]);
+    }
   }
 
   SLINE("UXCTL");
